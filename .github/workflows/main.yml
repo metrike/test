@@ -15,7 +15,8 @@ jobs:
 
       - name: List contents of the repository
         run: ls -la
-      
+        working-directory: nom-du-projet-react
+        
       - name: Install dependencies (React project)
         run: npm install
         working-directory: nom-du-projet-react
