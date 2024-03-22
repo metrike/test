@@ -12,7 +12,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      
+        with:
+          submodules: 'recursive' # Cette ligne est ajoutée pour cloner les submodules, si vous en avez.
+
       - name: List contents of the root directory
         run: ls -la
 
