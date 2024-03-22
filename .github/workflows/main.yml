@@ -12,11 +12,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      
-      - name: List contents of the React project directory
-        run: ls -la
-        working-directory: nom-du-projet-react
 
+      - name: List contents of the repository
+        run: ls -la
+      
       - name: Install dependencies (React project)
         run: npm install
         working-directory: nom-du-projet-react
