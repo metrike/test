@@ -15,17 +15,16 @@ jobs:
       
       - name: Install dependencies (React project)
         run: |
-          cd nom-du-projet-react
           npm install
+        working-directory: nom-du-projet-react
 
       - name: Build React project
         run: |
-          cd nom-du-projet-react
           npm run build
+        working-directory: nom-du-projet-react
 
       - name: Deploy to Vercel
-        run: |
-          cd nom-du-projet-react
-          vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --yes
+        run: vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --yes
         env:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        working-directory: nom-du-projet-react
