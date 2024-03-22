@@ -12,12 +12,20 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      
+      - name: Install dependencies (React project)
+        run: |
+          cd nom-du-projet-react
+          npm install
 
-      - name: Install Vercel CLI
-        run: npm i -g vercel
+      - name: Build React project
+        run: |
+          cd nom-du-projet-react
+          npm run build
 
       - name: Deploy to Vercel
-        run: vercel --token ${{ secrets.VERCEL_TOKEN }} --yes
+        run: |
+          cd nom-du-projet-react
+          vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --yes
         env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
