@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "nom-du-projet-react/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "nom-du-projet-react/build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "nom-du-projet-adonis/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "nom-du-projet-react/$1"
+    }
+  ]
+}
